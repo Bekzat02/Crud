@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPCCtegory";
+
+service Category {
+	rpc getProductByCategory (CategoryName) returns (Product); 
+	
+	rpc ChangeCategoryNameById (ProductLookup) returns (CategoryName);
+	
+	rpc getAllProducts (AllProductsLookup) returns (stream Product);
+}
+
+message Product {
+  int32 id=1;
+  string name=2;
+  string category=3;
+}
+
+message CategoryName {
+	string name=1;
+}
+
+message ProductLookup {
+	int32 id=1;
+}
+message AllProductsLookup {
+
+}
